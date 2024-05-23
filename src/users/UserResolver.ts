@@ -1,18 +1,6 @@
-import {
-  Resolver,
-  Query,
-  Args,
-  Int,
-  ResolveField,
-  Parent,
-  Mutation,
-} from '@nestjs/graphql';
+import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { User } from '../graphql/models/User';
-import { mockUsers } from '../__mocks__/mockUsers';
-import { UserSetting } from '../graphql/models/UserSetting';
-import { mockUserSettings } from '../__mocks__/mockUserSettings';
 import { CreateUserInput } from '../graphql/utils/CreateUserInput';
-import { Inject } from '@nestjs/common';
 import { UserService } from './UserService';
 import { UserSettingService } from './UserSettingService';
 
