@@ -4,8 +4,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'dotenv';
 import { join } from 'path';
-import { User } from './graphql/models/User';
-import { UserSetting } from './graphql/models/UserSetting';
+import { User } from './graphql/models/user.model';
+import { UserSetting } from './graphql/models/userSettings.model';
 import { UsersModule } from './users/users.module';
 
 config();

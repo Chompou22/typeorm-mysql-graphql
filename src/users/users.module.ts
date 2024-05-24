@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserResolver } from './UserResolver';
-import { UserService } from './UserService';
-import { User } from '../graphql/models/User';
-import { UserSettingService } from './UserSettingService';
-import { UserSetting } from '../graphql/models/UserSetting';
-import { UserSettingsResolver } from '../graphql/resolvers/UserSettingsResolver';
+import { User } from '../graphql/models/user.model';
+import { UserSetting } from '../graphql/models/userSettings.model';
+import { UserSettingsResolver } from '../graphql/resolvers/userSettings.resolver';
+import { UserResolver } from './users.resolver';
+import { UserService } from './users.service';
+import { UserSettingService } from './userSettings.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, UserSetting])],

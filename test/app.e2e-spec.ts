@@ -1,10 +1,10 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
-import { DataSource } from 'typeorm';
+import { Test, TestingModule } from '@nestjs/testing';
 import { print } from 'graphql';
+import * as request from 'supertest';
+import { DataSource } from 'typeorm';
 import { createUserMutation, getUsersQuery } from '../src/utils/queries';
+import { AppModule } from './../src/app.module';
 
 describe('GraphQL Server (e2e)', () => {
   let app: INestApplication;
@@ -29,9 +29,14 @@ describe('GraphQL Server (e2e)', () => {
     await app.close();
   });
 
+  /*
+  because graphql itself it not actually its own protocol it serve over HTTP
+  so when you set a graphql server there will be a graphql endpoint on the HTTP APIs
+   */
+
   describe('users', () => {
     it('should query getUsers and return 0 users', () => {
-      return request(app.getHttpServer())
+      return request(app.getHttpServer()) // app instance allow you to access the HTTP
         .post('/graphql')
         .send({ query: print(getUsersQuery) })
         .expect((res) => {

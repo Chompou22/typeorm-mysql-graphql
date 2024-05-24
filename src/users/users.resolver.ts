@@ -1,8 +1,8 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { User } from '../graphql/models/User';
-import { CreateUserInput } from '../graphql/utils/CreateUserInput';
-import { UserService } from './UserService';
-import { UserSettingService } from './UserSettingService';
+import { User } from '../graphql/models/user.model';
+import { CreateUserInput } from '../graphql/types/CreateUserInput';
+import { UserService } from './users.service';
+import { UserSettingService } from './userSettings.service';
 
 export let incrementalId = 3;
 
